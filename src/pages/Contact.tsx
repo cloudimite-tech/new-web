@@ -31,17 +31,42 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
-
-    // TODO: Integrate with Lovable Cloud email function
-    // For now, just show a success message
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you as soon as possible.",
+    try{
+      const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+      if (!formspreeId) {
+        throw new Error('Formspree Form ID not configured');
+      }
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'New Contact Form Submission - Cloudimite',
+          message: formData.message,
+        }),
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setIsSubmitting(false);
-    }, 1000);
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    }catch(err){
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly.",
+        variant: "destructive",
+      });
+    }finally{
+       setIsSubmitting(false);
+    }
   };
 
   const handleChange = (

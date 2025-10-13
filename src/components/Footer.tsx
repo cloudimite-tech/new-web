@@ -18,22 +18,34 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/about"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/services"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/contact"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contact Us
                 </Link>
               </li>
@@ -53,10 +65,14 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-foreground">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Mail size={16} className="text-primary" />
-                hello@cloudimite.com
-              </li>
+              <a
+                href="mailto:hello@cloudimite.com"
+              >
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Mail size={16} className="text-primary" />
+                  hello@cloudimite.com
+                </li>
+              </a>
             </ul>
           </div>
         </div>
