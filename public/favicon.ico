@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#1e293b"/>
+  
+  <!-- Cloud Icon -->
+  <path d="M44 32C44 30.3431 42.6569 29 41 29C40.8126 29 40.6293 29.0172 40.4516 29.0504C39.7677 25.8424 36.9656 23.5 33.5 23.5C29.6397 23.5 26.5 26.6397 26.5 30.5C26.5 30.8283 26.5234 31.1512 26.5687 31.4674C24.5301 32.0737 23 33.9462 23 36.1667C23 38.8381 25.1619 41 27.8333 41H41C43.2091 41 45 39.2091 45 37C45 34.7909 43.2091 33 41 33C41 32.4477 40.5523 32 40 32H44Z" fill="url(#cloudGradient)" stroke="url(#cloudStroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="cloudGradient" x1="23" y1="23.5" x2="45" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="cloudStroke" x1="23" y1="23.5" x2="45" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+</svg>
