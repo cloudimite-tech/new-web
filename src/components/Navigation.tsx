@@ -19,10 +19,10 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-4 h-ful py-4">
+        <div className="flex items-center justify-between h-full">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Cloudimite" className="h-10 w-auto" />
+            <img src={logo} alt="Cloudimite" className="h-[4rem] w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
