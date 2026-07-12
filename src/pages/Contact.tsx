@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
+import Reveal from "@/components/Reveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -78,14 +79,30 @@ const Contact = () => {
     }));
   };
 
+  const faqs = [
+    { q: "How long does a typical project take?", a: "Project timelines vary based on scope and complexity. A simple web application might take 4-8 weeks, while enterprise solutions can take 3-6 months. During our initial consultation, we'll provide a detailed timeline based on your specific requirements." },
+    { q: "What is your pricing model?", a: "We offer flexible pricing models including fixed-price projects, time and materials, and dedicated team arrangements. After understanding your needs, we'll provide a transparent quote with no hidden fees. We believe in clear, upfront pricing that aligns with your budget." },
+    { q: "Do you provide post-launch support?", a: "Absolutely! We offer comprehensive maintenance and support packages including 24/7 monitoring, bug fixes, performance optimization, and feature enhancements. We're committed to your long-term success, not just the initial launch." },
+    { q: "Can you work with our existing systems?", a: "Yes! We specialize in system integration and can work with your existing infrastructure. Whether you need to modernize legacy systems, integrate new tools, or build bridges between different platforms, we have the expertise to make it seamless." },
+    { q: "How do you ensure project security?", a: "Security is integrated into every phase of our process. We follow industry best practices including secure coding standards, regular security audits, penetration testing, and compliance with relevant regulations (GDPR, HIPAA, etc.). All data is encrypted and access is strictly controlled." },
+    { q: "What technologies do you specialize in?", a: "We work with modern, proven technologies including React, Node.js, Python, AWS, Azure, Docker, Kubernetes, and more. We're technology-agnostic and select the best tools for your specific needs rather than forcing a one-size-fits-all approach." },
+  ];
+
+  const working = [
+    { icon: MessageSquare, title: "Clear Communication", description: "Regular updates, transparent reporting, and open channels ensure you're always in the loop about your project's progress." },
+    { icon: Clock, title: "Timely Delivery", description: "We respect deadlines and use proven project management methodologies to ensure on-time delivery without compromising quality." },
+    { icon: CheckCircle, title: "Quality Guarantee", description: "Every deliverable goes through rigorous testing and quality assurance to meet our high standards and your expectations." },
+  ];
+
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <div className="min-h-screen pt-32 pb-20">
       {/* Hero Section */}
-      <section className="px-4 py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-50" />
+      <section className="px-4 py-16 relative overflow-hidden bg-dot-grid">
+        <div className="absolute inset-0 bg-gradient-hero opacity-70" />
+        <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/15 rounded-full blur-[110px]" />
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground">
               Get in <span className="bg-gradient-primary bg-clip-text text-transparent">Touch</span>
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -100,26 +117,26 @@ const Contact = () => {
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <Reveal className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-4">
+                <h2 className="font-display text-3xl font-bold text-foreground mb-4">
                   Let's Start a Conversation
                 </h2>
                 <p className="text-muted-foreground">
-                  Whether you have a project in mind, need technical consultation, 
+                  Whether you have a project in mind, need technical consultation,
                   or just want to learn more about our services, we're here to help.
                 </p>
               </div>
 
-              <Card className="p-6 bg-gradient-card border-border">
+              <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10">
+                  <div className="p-3 rounded-xl bg-primary/10">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
-                    <a 
-                      href="mailto:hello@cloudimite.com" 
+                    <a
+                      href="mailto:hello@cloudimite.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       hello@cloudimite.com
@@ -129,10 +146,10 @@ const Contact = () => {
               </Card>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-foreground">
+                <h3 className="text-lg font-semibold text-foreground">
                   What to Expect
                 </h3>
-                <ul className="space-y-3 text-muted-foreground">
+                <ul className="space-y-3 text-muted-foreground text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
                     <span>Response within 24 hours</span>
@@ -151,10 +168,11 @@ const Contact = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </Reveal>
 
             {/* Contact Form */}
-            <Card className="p-8 bg-gradient-card border-border">
+            <Reveal delay={120}>
+            <Card className="p-8 bg-white/[0.02] border-white/10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-foreground">
@@ -167,7 +185,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="Your name"
-                    className="bg-background border-border"
+                    className="bg-background border-white/10"
                   />
                 </div>
 
@@ -183,7 +201,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="your@email.com"
-                    className="bg-background border-border"
+                    className="bg-background border-white/10"
                   />
                 </div>
 
@@ -197,7 +215,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="How can we help?"
-                    className="bg-background border-border"
+                    className="bg-background border-white/10"
                   />
                 </div>
 
@@ -213,14 +231,14 @@ const Contact = () => {
                     required
                     placeholder="Tell us about your project or inquiry..."
                     rows={5}
-                    className="bg-background border-border resize-none"
+                    className="bg-background border-white/10 resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-primary text-primary-foreground hover:shadow-glow-primary"
+                  className="w-full rounded-full bg-gradient-primary text-primary-foreground font-semibold hover:shadow-glow-primary"
                 >
                   {isSubmitting ? (
                     "Sending..."
@@ -232,136 +250,63 @@ const Contact = () => {
                 </Button>
               </form>
             </Card>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="px-4 py-20">
+      <section className="px-4 py-20 border-t border-white/5">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  How long does a typical project take?
-                </h3>
-                <p className="text-muted-foreground">
-                  Project timelines vary based on scope and complexity. A simple web application might 
-                  take 4-8 weeks, while enterprise solutions can take 3-6 months. During our initial 
-                  consultation, we'll provide a detailed timeline based on your specific requirements.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  What is your pricing model?
-                </h3>
-                <p className="text-muted-foreground">
-                  We offer flexible pricing models including fixed-price projects, time and materials, 
-                  and dedicated team arrangements. After understanding your needs, we'll provide a 
-                  transparent quote with no hidden fees. We believe in clear, upfront pricing that 
-                  aligns with your budget.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Do you provide post-launch support?
-                </h3>
-                <p className="text-muted-foreground">
-                  Absolutely! We offer comprehensive maintenance and support packages including 24/7 
-                  monitoring, bug fixes, performance optimization, and feature enhancements. We're 
-                  committed to your long-term success, not just the initial launch.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Can you work with our existing systems?
-                </h3>
-                <p className="text-muted-foreground">
-                  Yes! We specialize in system integration and can work with your existing infrastructure. 
-                  Whether you need to modernize legacy systems, integrate new tools, or build bridges 
-                  between different platforms, we have the expertise to make it seamless.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  How do you ensure project security?
-                </h3>
-                <p className="text-muted-foreground">
-                  Security is integrated into every phase of our process. We follow industry best practices 
-                  including secure coding standards, regular security audits, penetration testing, and 
-                  compliance with relevant regulations (GDPR, HIPAA, etc.). All data is encrypted and 
-                  access is strictly controlled.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  What technologies do you specialize in?
-                </h3>
-                <p className="text-muted-foreground">
-                  We work with modern, proven technologies including React, Node.js, Python, AWS, Azure, 
-                  Docker, Kubernetes, and more. We're technology-agnostic and select the best tools for 
-                  your specific needs rather than forcing a one-size-fits-all approach.
-                </p>
-              </Card>
+            <Reveal>
+              <h2 className="font-display text-4xl font-bold text-foreground text-center mb-12">
+                Frequently Asked Questions
+              </h2>
+            </Reveal>
+            <div className="space-y-4">
+              {faqs.map((item, index) => (
+                <Reveal key={index} delay={(index % 3) * 80}>
+                  <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      {item.q}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.a}
+                    </p>
+                  </Card>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Additional Info */}
-      <section className="px-4 py-20 bg-background">
+      <section className="px-4 py-20 bg-background border-t border-white/5">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
-              Working with Cloudimite
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="p-6 bg-gradient-card border-border text-center">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Clear Communication
-                </h3>
-                <p className="text-muted-foreground">
-                  Regular updates, transparent reporting, and open channels ensure you're always 
-                  in the loop about your project's progress.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border text-center">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10">
-                  <Clock className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Timely Delivery
-                </h3>
-                <p className="text-muted-foreground">
-                  We respect deadlines and use proven project management methodologies to ensure 
-                  on-time delivery without compromising quality.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-gradient-card border-border text-center">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10">
-                  <CheckCircle className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Quality Guarantee
-                </h3>
-                <p className="text-muted-foreground">
-                  Every deliverable goes through rigorous testing and quality assurance to meet 
-                  our high standards and your expectations.
-                </p>
-              </Card>
+            <Reveal>
+              <h2 className="font-display text-4xl font-bold text-foreground text-center mb-12">
+                Working with Cloudimite
+              </h2>
+            </Reveal>
+            <div className="grid md:grid-cols-3 gap-6">
+              {working.map((item, index) => (
+                <Reveal key={index} delay={index * 100}>
+                  <Card className="p-6 h-full bg-white/[0.02] border-white/10 hover:border-primary/30 hover:-translate-y-1 transition-all text-center">
+                    <div className="mb-4 inline-flex p-3 rounded-xl bg-primary/10">
+                      <item.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {item.description}
+                    </p>
+                  </Card>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>

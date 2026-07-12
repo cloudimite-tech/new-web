@@ -2,50 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 220 30% 8%;
+    --background: 224 45% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 220 25% 12%;
+    --card: 222 39% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 25% 12%;
+    --popover: 222 39% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 180 100% 41%;
-    --primary-foreground: 220 30% 8%;
+    --primary: 189 94% 50%;
+    --primary-foreground: 224 45% 6%;
 
-    --secondary: 28 100% 50%;
-    --secondary-foreground: 220 30% 8%;
+    --secondary: 239 84% 67%;
+    --secondary-foreground: 224 45% 6%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 222 25% 16%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 28 100% 50%;
-    --accent-foreground: 220 30% 8%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 224 45% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 180 100% 41%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 189 94% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%), hsl(220 40% 12%));
-    --gradient-card: linear-gradient(135deg, hsl(220 25% 12% / 0.5), hsl(220 25% 16% / 0.5));
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 41%), hsl(180 80% 50%));
-    --gradient-accent: linear-gradient(135deg, hsl(28 100% 50%), hsl(35 100% 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(224 45% 6%), hsl(224 48% 9%));
+    --gradient-card: linear-gradient(135deg, hsl(222 39% 11% / 0.7), hsl(222 39% 15% / 0.5));
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 50%), hsl(239 84% 67%));
+    --gradient-accent: linear-gradient(135deg, hsl(239 84% 67%), hsl(189 84% 55%));
 
-    --shadow-glow-primary: 0 0 40px hsl(180 100% 41% / 0.3);
-    --shadow-glow-accent: 0 0 40px hsl(28 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 30% 5% / 0.5);
+    --shadow-glow-primary: 0 0 50px hsl(189 94% 50% / 0.25);
+    --shadow-glow-accent: 0 0 50px hsl(239 84% 67% / 0.25);
+    --shadow-card: 0 20px 45px -20px hsl(224 55% 2% / 0.65);
+
+    --dot-grid: radial-gradient(circle at 1px 1px, hsl(210 40% 98% / 0.07) 1px, transparent 0);
   }
 }
 
@@ -56,5 +58,31 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-dot-grid {
+    background-image: var(--dot-grid);
+    background-size: 28px 28px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
