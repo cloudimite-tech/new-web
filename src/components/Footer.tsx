@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import logo from "@/assets/cloudimite-logo.png";
 
 const Footer = () => {
@@ -53,13 +53,31 @@ const Footer = () => {
 
           <div>
             <h3 className="font-semibold mb-4 text-foreground text-sm">Contact</h3>
-            <a
-              href="mailto:hello@cloudimite.com"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail size={16} className="text-primary" />
-              hello@cloudimite.com
-            </a>
+            <div className="space-y-3">
+              <a
+                href="mailto:hello@cloudimite.com"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail size={16} className="text-primary flex-shrink-0" />
+                hello@cloudimite.com
+              </a>
+              <a
+                href="tel:+94764410713"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone size={16} className="text-primary flex-shrink-0" />
+                +94 76 441 0713
+              </a>
+              <a
+                href="https://www.linkedin.com/company/cloudimite"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin size={16} className="text-primary flex-shrink-0" />
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
