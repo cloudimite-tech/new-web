@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Send, MessageSquare, Clock, CheckCircle } from "lucide-react";
+import { Mail, Phone, Linkedin, Send, MessageSquare, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -128,22 +128,60 @@ const Contact = () => {
                 </p>
               </div>
 
-              <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10">
-                    <Mail className="w-6 h-6 text-primary" />
+              <div className="space-y-4">
+                <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Mail className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
+                      <a
+                        href="mailto:hello@cloudimite.com"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        hello@cloudimite.com
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
-                    <a
-                      href="mailto:hello@cloudimite.com"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      hello@cloudimite.com
-                    </a>
+                </Card>
+
+                <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-2">Call Us</h3>
+                      <a
+                        href="tel:+94764410713"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        +94 76 441 0713
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+
+                <Card className="p-6 bg-white/[0.02] border-white/10 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10">
+                      <Linkedin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground mb-2">LinkedIn</h3>
+                      <a
+                        href="https://www.linkedin.com/company/cloudimite"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        linkedin.com/company/cloudimite
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+              </div>
 
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-foreground">
